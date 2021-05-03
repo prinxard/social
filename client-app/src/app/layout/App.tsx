@@ -5,12 +5,14 @@ import NavBar from './NavBar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashboard';
 import agent from '../api/agent';
 import LoadingComponent from './LoadingComonent';
+import {v4 as uuid} from 'uuid';
 
 function App() {
   const [activities, setActivities] = useState<Activity[]>([])
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
 useEffect(()=>{
  agent.Activities.list().then(response => {
@@ -43,9 +45,10 @@ function handleFormClose(){
 }
 
 function handleCreateOrEditActivity(activity:Activity) {
+  setSubmitting(true);
   activity.id ? setActivities
   ([...activities.filter(x => x.id !== activity.id), activity])
-  : setActivities([...activities, activity]);
+  : setActivities([...activities, {...activity, id: uuid() }]);
   setEditMode(false);
   setSelectedActivity(activity);
 }
