@@ -7,10 +7,12 @@ import agent from '../api/agent';
 import LoadingComponent from './LoadingComonent';
 import { v4 as uuid } from 'uuid';
 import { useStore } from '../stores/store.ts';
+import { observer } from 'mobx-react-lite';
 
 function App() {
 
   const {activityStore} = useStore();
+
   const [activities, setActivities] = useState<Activity[]>([])
   const [selectedActivity, setSelectedActivity] = useState<Activity | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
@@ -93,4 +95,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

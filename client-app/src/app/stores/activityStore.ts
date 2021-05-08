@@ -14,15 +14,15 @@ export default class ActivityStore {
     }
 
     loadActivities = async () => {
-        this.loadingInitial = true
+        this.loadingInitial = true;
         try {
             const activities = await agent.Activities.list();
             activities.forEach(activity => {
                 activity.date = activity.date.split('T')[0];
-                activities.push(activity);
-              })
-              this.loadingInitial = false;
-        } 
+                this.activities.push(activity);
+            })
+            this.loadingInitial = false;
+        }
         catch (error) {
             this.loadingInitial = false;
         }
