@@ -19,7 +19,6 @@ export default class ActivityStore {
         try {
             const activities = await agent.Activities.list();
             
-
                 activities.forEach(activity => {
                     activity.date = activity.date.split('T')[0];
                     this.activities.push(activity);
@@ -75,7 +74,7 @@ export default class ActivityStore {
         try {
             await agent.Activities.update(activity)
             runInAction(() => {
-                this.activities = [...this.activities.filter(a => a.id !== activity.id)];
+                this.activities = [...this.activities.filter(a => a.id !== activity.id), activity];
                 this.selectedActivity = activity;
                 this.editMode = false;
                 this.loading = false;
@@ -86,4 +85,20 @@ export default class ActivityStore {
             })
         }
     }
+    deleteActivity = async (id: string) => {
+        this.loading = true;
+        try {
+            await agent.Activities.delete(id)
+            runInAction(() => {
+                this.activities = [...this.activities.filter(a => a.id !== id)];
+                if (this.selectedActivity?.id === id) this.cancelSelectedActivity();     
+                this.loading = false;
+            })
+        } catch (error) {
+            runInAction(()=>{
+                this.loading= false;
+            })
+        }
+    }
+
 }
