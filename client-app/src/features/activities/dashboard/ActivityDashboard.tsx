@@ -7,9 +7,7 @@ import ActivityForm from '../form/ActivityForm';
 import ActivityList from './ActivityList';
 
 
-
 export default observer(function ActivityDashboard() {
-
         const {activityStore} = useStore();
         const {selectedActivity, editMode} = activityStore;
     return (
