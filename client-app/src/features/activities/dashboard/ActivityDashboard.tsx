@@ -5,7 +5,6 @@ import LoadingComponent from '../../../app/layout/LoadingComonent';
 import { useStore } from '../../../app/stores/store.ts';
 import ActivityList from './ActivityList';
 
-
 export default observer(function ActivityDashboard() {
         const {activityStore} = useStore();
         useEffect(() => {
