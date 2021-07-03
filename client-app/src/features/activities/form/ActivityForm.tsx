@@ -50,7 +50,7 @@ export default observer (function ActivityForm() {
 
      }
      
-     if (loadingInitial) return <LoadingComponent content='Loading activity...' />
+    //  if (loadingInitial) return <LoadingComponent content='Loading activity...' />
 
     return (
         <Segment clearing>
