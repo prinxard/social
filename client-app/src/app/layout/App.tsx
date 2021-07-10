@@ -9,6 +9,7 @@ import HomePage from '../../features/home/HomePage';
 import ActivityForm from '../../features/activities/form/ActivityForm';
 import ActivityDetails from '../../features/activities/details/Activitydetails';
 import { useLocation } from 'react-router-dom';
+import TestErrors from '../../features/errors/TestErrors';
 
 function App() {
   const location = useLocation()
@@ -25,6 +26,7 @@ function App() {
               <Route exact path='/activities' component={ActivityDashboard} />
               <Route path='/activities/:id' component={ActivityDetails} />
               <Route key={location.key} path={['/createActivity', '/manage/:id']} component={ActivityForm} />
+              <Route path='/errors' component={TestErrors} />
             </Container>
           </>
         )}
