@@ -38,11 +38,12 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers().AddFluentValidation(config => {
+            services.AddControllers().AddFluentValidation(config =>
+            {
                 config.RegisterValidatorsFromAssemblyContaining<Create>();
             });
             services.AddApplicationServices(_config);
-            services.AddIdentityServices(_config); 
+            services.AddIdentityServices(_config);
 
         }
 
@@ -62,7 +63,10 @@ namespace API
             // app.UseHttpsRedirection();
 
             app.UseRouting();
+
             app.UseCors("CorsPolicy");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
