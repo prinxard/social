@@ -5,7 +5,6 @@ import UserStore from "./userStore";
 interface Store {
     activityStore: ActivityStore;
     userStore: UserStore;
-
 }
 
 export const store: Store = {
