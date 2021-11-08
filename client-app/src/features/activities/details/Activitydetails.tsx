@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // import { act } from 'react-dom/test-utils'
 import { Button, Card, Grid, Icon, Image } from 'semantic-ui-react'
 import LoadingComponent from '../../../app/layout/LoadingComonent';
-import { useStore } from '../../../app/stores/store.ts'
+import { useStore } from '../../../app/stores/store'
 import ActivityDetailedChat from './ActivityDetailedChat';
 import ActivityDetailedHeader from './ActivityDetailedHeader';
 import ActivityDetailedInfo from './ActivityDetailedInfo';

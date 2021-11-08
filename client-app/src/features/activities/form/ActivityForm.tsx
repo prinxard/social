@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { Button, Header, Segment } from 'semantic-ui-react';
 import { Activity } from '../../../app/models/activity';
-import { useStore } from '../../../app/stores/store.ts';
+import { useStore } from '../../../app/stores/store';
 import { v4 as uuid } from 'uuid';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { useEffect } from 'react';

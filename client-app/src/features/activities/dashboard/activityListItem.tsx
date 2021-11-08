@@ -4,7 +4,7 @@ import { SyntheticEvent } from "react";
 import { Link } from "react-router-dom";
 import { Button, Icon, Item, Label, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
-import { useStore } from "../../../app/stores/store.ts";
+import { useStore } from "../../../app/stores/store";
 
 interface Props {
     activity: Activity
